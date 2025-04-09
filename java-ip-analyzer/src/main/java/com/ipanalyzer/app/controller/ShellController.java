@@ -24,9 +24,9 @@ public class ShellController {
                        @RequestParam(value = "dst_ip", required = false) String dstIp) {
         try {
             // Conda 环境中的 Python 路径
-            String pythonPath = "/opt/TopDSP/service/pytest/demo_env/bin/python";
+            String pythonPath = "./pytest/demo_env/bin/python";
             // Python 脚本路径
-            String scriptPath = "/opt/TopDSP/service/pytest/" + name + ".py";
+            String scriptPath = "./service/pytest/" + name + ".py";
 
             // 启动 Python 进程
             // 构造命令列表

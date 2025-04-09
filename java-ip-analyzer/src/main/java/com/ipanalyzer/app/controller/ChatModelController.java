@@ -25,19 +25,19 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 public class ChatModelController {
-  private final OpenAiChatModel openAiChatModel;
+    private final OpenAiChatModel openAiChatModel;
 
-  @GetMapping(value = "run")
-  public String run(@RequestParam(value = "prompt") String prompt) {
-    McpSyncClient client = McpClient.sync(new HttpClientSseClientTransport("http://127.0.0.1:22015")).build();
-    McpSchema.InitializeResult initialize = client.initialize();
-    McpSchema.ListToolsResult listToolsResult = client.listTools();
+    @GetMapping(value = "run")
+    public String run(@RequestParam(value = "prompt", defaultValue = "发邮件给zs@123.com，内容是查询到的北京昌平区的天气情况") String prompt) {
+        McpSyncClient client = McpClient.sync(new HttpClientSseClientTransport("http://127.0.0.1:22015")).build();
+        McpSchema.InitializeResult initialize = client.initialize();
+        McpSchema.ListToolsResult listToolsResult = client.listTools();
 
-    SyncMcpToolCallbackProvider syncMcpToolCallbackProvider = new SyncMcpToolCallbackProvider(List.of(client));
+        SyncMcpToolCallbackProvider syncMcpToolCallbackProvider = new SyncMcpToolCallbackProvider(List.of(client));
 
-    ChatClient chatClient = ChatClient.builder(openAiChatModel).defaultTools(syncMcpToolCallbackProvider).build();
-    String content = chatClient.prompt(prompt).call().content();
-    System.out.println(content);
-    return content;
-  }
+        ChatClient chatClient = ChatClient.builder(openAiChatModel).defaultTools(syncMcpToolCallbackProvider).build();
+        String content = chatClient.prompt(prompt).call().content();
+        System.out.println("大模型返回值：" + content);
+        return content;
+    }
 }
