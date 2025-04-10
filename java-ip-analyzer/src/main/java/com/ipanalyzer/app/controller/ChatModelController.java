@@ -4,6 +4,7 @@ import io.modelcontextprotocol.client.McpClient;
 import io.modelcontextprotocol.client.McpSyncClient;
 import io.modelcontextprotocol.client.transport.HttpClientSseClientTransport;
 import io.modelcontextprotocol.spec.McpSchema;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.compress.utils.Lists;
@@ -27,8 +28,9 @@ import java.util.List;
 public class ChatModelController {
   private final OpenAiChatModel openAiChatModel;
 
-  @GetMapping(value = "run")
-  public String run(@RequestParam(value = "prompt") String prompt) {
+  @GetMapping(value = "run", produces = "text/plain;charset=UTF-8")
+  public String run(@RequestParam(value = "prompt") String prompt, HttpServletResponse response) {
+    response.setContentType("text/plain;charset=UTF-8");
     McpSyncClient client = McpClient.sync(new HttpClientSseClientTransport("http://127.0.0.1:22015")).build();
     McpSchema.InitializeResult initialize = client.initialize();
     McpSchema.ListToolsResult listToolsResult = client.listTools();
