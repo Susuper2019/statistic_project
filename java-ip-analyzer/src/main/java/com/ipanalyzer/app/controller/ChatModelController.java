@@ -12,6 +12,7 @@ import org.apache.commons.compress.utils.Lists;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.mcp.SyncMcpToolCallbackProvider;
 import org.springframework.ai.openai.OpenAiChatModel;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,11 +30,11 @@ import java.util.List;
 public class ChatModelController {
     private final OpenAiChatModel openAiChatModel;
 
-    @GetMapping(value = "run",produces = "text/plain;charset=UTF-8")
+    @GetMapping(value = "run", produces = "text/plain;charset=UTF-8")
     public String run(@RequestParam(value = "prompt", defaultValue = "发邮件给zs@123.com，内容是查询到的北京昌平区的天气情况") String prompt,
                       HttpServletResponse response) {
-      response.setContentType("text/plain;charset=UTF-8");
-      McpSyncClient client = McpClient.sync(new HttpClientSseClientTransport("http://127.0.0.1:22015")).build();
+        response.setContentType("text/plain;charset=UTF-8");
+        McpSyncClient client = McpClient.sync(new HttpClientSseClientTransport("http://127.0.0.1:22015")).build();
         McpSchema.InitializeResult initialize = client.initialize();
         McpSchema.ListToolsResult listToolsResult = client.listTools();
 
