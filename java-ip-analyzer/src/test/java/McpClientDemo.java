@@ -2,6 +2,8 @@ import io.modelcontextprotocol.client.McpClient;
 import io.modelcontextprotocol.client.McpSyncClient;
 import io.modelcontextprotocol.client.transport.HttpClientSseClientTransport;
 import io.modelcontextprotocol.spec.McpSchema;
+import org.neo4j.driver.AuthTokens;
+import org.neo4j.driver.Driver;
 import org.junit.jupiter.api.Test;
 import org.neo4j.driver.GraphDatabase;
 import org.springframework.ai.chat.client.ChatClient;
@@ -21,7 +23,6 @@ import org.springframework.ai.rag.retrieval.search.VectorStoreDocumentRetriever;
 import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.neo4j.Neo4jVectorStore;
 
-import java.sql.Driver;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
