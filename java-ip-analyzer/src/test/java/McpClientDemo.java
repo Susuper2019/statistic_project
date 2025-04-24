@@ -47,7 +47,7 @@ public class McpClientDemo {
 
 //        sk-hTmGLyzDvnk8ouwBB7JFNJmzLibhIXwu6AMTX6UdxtEA3ddJ
 
-        McpSyncClient client = McpClient.sync(new HttpClientSseClientTransport("http://127.0.0.1:22015")).build();
+        McpSyncClient client = McpClient.sync(HttpClientSseClientTransport.builder("http://127.0.0.1:22015").build()).build();
         McpSchema.InitializeResult initialize = client.initialize();
         McpSchema.ListToolsResult listToolsResult = client.listTools();
         System.out.println(listToolsResult.tools());
