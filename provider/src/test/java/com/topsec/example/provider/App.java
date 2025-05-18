@@ -14,14 +14,12 @@
  * limitations under the License.
  */
 
-package com.topsec.example.nacosmcpdemo;
+package com.topsec.example.provider;
 
 import com.alibaba.nacos.api.NacosFactory;
 import com.alibaba.nacos.api.PropertyKeyConst;
 import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.exception.NacosException;
-import com.alibaba.nacos.api.lock.LockService;
-import com.alibaba.nacos.api.lock.NacosLockFactory;
 import com.alibaba.nacos.api.naming.NamingFactory;
 import com.alibaba.nacos.api.naming.NamingService;
 import com.alibaba.nacos.api.naming.pojo.Instance;

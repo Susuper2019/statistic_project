@@ -1,0 +1,14 @@
+server:
+  port: 30001
+spring:
+  application:
+    name: service-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 10.7.211.69:8848
+        namespace: example
+        ip: 127.0.0.1
+        port: ${server.port}
+        group: DEV_GROUP
+        cluster-name: beijing-consumer

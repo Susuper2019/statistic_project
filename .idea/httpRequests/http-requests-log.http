@@ -1,0 +1,32 @@
+GET http://10.7.211.69:31002/mcp/sample?sessionId=2b24c9f9-7b5a-4bb8-990a-636c5ad00f50
+Content-Type: application/json
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 59
+
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "tools/list"
+}
+
+###
+
+GET http://10.7.211.69:31002/mcp/sample?sessionId=436ce2e9-359a-4e75-9b7c-f60e5d064ca4
+Content-Type: application/json
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 59
+
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "tools/list"
+}
+
+<> 2025-05-18T180113.404.json
+
+###
+
