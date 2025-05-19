@@ -21,5 +21,10 @@ public class ProviderApplication {
         public String echo(@PathVariable(value = "string") String string) {
             return "Hello Nacos Discovery " + string;
         }
+
+        @GetMapping(value = "/test")
+        public String test(){
+            return "test";
+        }
     }
 }
