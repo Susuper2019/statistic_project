@@ -7,7 +7,7 @@ spring:
     nacos:
       discovery:
         server-addr: 10.7.211.69:8848
-        namespace: example
+        namespace: public
         ip: 127.0.0.1
         port: ${server.port}
         group: DEV_GROUP

@@ -1,1 +1,4 @@
 /.idea/
+/target/
+/provider/target/
+/consumer/target/
